@@ -1,0 +1,87 @@
+\documentclass[]{iac}
+
+\usepackage{lipsum}
+
+\IACpaperyear{23}
+\IACpapernumber{D1.4B.1}
+\IACconference{74}
+\IAClocation{Baku, Azerbaijan, 2-6 October 2023}
+\IACcopyrightB{2023}{Politecnico di Milano}
+
+\IACmainauthor{Michele Ceresoli}{1}{michele.ceresoli@polimi.it}
+\IACauthor{Michèle Lavagna}{1}
+
+\IACaffiliation{Dipartimento di Scienze e Tecnologie Aerospaziali, Politecnico di Milano, Italy}
+
+\IACkeywords{(maximum 6 keywords)}
+
+\IACacronym{ISS}{International Space Station}
+\IACacronym{RSLV}{Reusable Suborbital Launch Vehicle}
+
+\title{Manuscript Template and Style Gude (Title of Your Paper)}
+
+\abstract{A concise and factual abstract (written in third person and in one paragraph) of no more than 400 words is required. The abstract should state briefly the purpose of the research, the principal results and major conclusions. An abstract must be stand alone and complete in itself with no references to the main body of the manuscript. References should be avoided, but if essential, then cite the author(s) and year(s). Also, non-standard or uncommon abbreviations should be avoided, but if essential they must be defined at their first mention in the abstract itself. Readers should not have to read the full text to understand the abstract. The abstract can be an updated version of the one submitted at the call-for-abstracts, but its contents must not differ substantially.}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+Section headings are in \textbf{bold} and placed flush on the left hand margin of the column.
+
+The Introduction Section is to state the objectives of the work, provide an adequate background including a brief literature survey, major differences from the others, and sectional organization of this paper. Avoid a too detailed and lengthy literature survey and a summary of the results.
+
+Divide your paper into clearly defined and numbered sections numbered 1., 2., …. Subsections should be numbered \textit{1.1} (then \textit{1.1.1, 1.1.2, ...}), \textit{1.2}, etc. Use this numbering also for internal cross-referencing: do not just refer to “the text”. Any subsection may be given a brief heading. Each heading should appear on its own separate line. 
+
+\subsection{Subsection headings}
+Subsection headings are in \textit{italics} and placed flush on the left hand margin of the column.
+
+\subsubsection{Sub-subsection headings}
+Sub-subsection headings are in \textit{italics} and placed flush on the left hand margin of the column.
+
+\section{Material and methods}
+Provide sufficient detail to allow the work to be reproduced. Methods already published should be indicated by a reference: only relevant modifications should be described.
+
+\section{Theory and calculation}
+A Theory section should extend, not repeat, the background to the article already dealt with in the Introduction and lay the foundation for further work. In contrast, a Calculation section represents a practical development from a theoretical basis.
+
+\subsection{Equation numbers}
+Number consecutively any equations that have to be displayed separately from the text (if referred to explicitly in the text). The numbers identifying the equations should be placed in parentheses to the right of the equation. For example:
+\begin{equation}\label{eq:masseq}
+    F_g = -G\frac{M_1 M_2}{R_{12}^2}i_r    
+\end{equation}
+
+\subsection{Figure numbers}
+Ensure that each figure/illustration has a title. All figures/illustrations must be numbered and cited (see Fig.~\ref{fig:testimage}) in the text consecutively. Place figures/ illustrations as close as possible to the first references to them in the manuscript. Restrict them to single-column width unless this would make them illegible (then extend these figures/illustrations across two columns or place them to the end of your paper). 
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Figures/testimage.jpg}
+    \caption{SpaceShipTwo carried under White Knight}
+    \label{fig:testimage}
+\end{figure}
+
+\subsection{Tables}
+Tables can be placed either next to the relevant text in the article, or on separate page(s) at the end. Number and cite (as shown in Table~XXX) tables consecutively in accordance with their appearance in the text. Place table title above and any remarks below the table body
+
+Tables with a moderate amount of information should be positioned within one column. Tables, figures or pictures with large amounts of information or size may extend across two columns.
+
+\subsection{Page Numbers}
+Indicate page number at the bottom of each page.
+
+\section{Results}
+Results should be clear and concise.
+
+\section{Discussion}
+This should explore the significance of the results of the work, not repeat them. A combined Results and Discussion section is often appropriate. Avoid extensive citations and discussion of published literature.
+
+\section{Conclusions}
+The main conclusions of the study may be presented in a short Conclusions section, which may stand alone or form a subsection of a Discussion or Results and Discussion section.
+
+\section*{Acknowledgments}
+This section is not numbered. 
+
+\bibliographystyle{unsrt}
+%\nocite{*}
+\bibliography{references}
+
+\end{document}
