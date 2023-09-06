@@ -42,7 +42,7 @@
 % Define a set of commands are used to establish the IAC settings
 \newcommand*{\IACpaperyear}[1]{\def \iac@paperyear{#1}}
 \newcommand*{\IACpapernumber}[1]{\def \iac@papernumber{#1}}
-\newcommand*{\IACconference}[1]{\def \iac@conference{#1}}
+\newcommand*{\IACconference}[2]{\def \iac@conference{#1\textsuperscript{#2}}}
 \newcommand*{\IAClocation}[1]{\def \iac@location{#1}}
 
 % This internal command is used by \IACmainauthor to register the corresponding author data
@@ -168,7 +168,7 @@
 \pagestyle{fancy}
 \fancyhead{}
 \fancyfoot{}
-\fancyhead[C]{\footnotesize{\iac@conference\textsuperscript{th} International Astronautical Congress (IAC), {\iac@location}.\\ \iac@copyright}}
+\fancyhead[C]{\footnotesize{\iac@conference\ International Astronautical Congress (IAC), {\iac@location}.\\ \iac@copyright}}
 \fancyfoot[L]{IAC--\iac@paperyear--\iac@papernumber}
 \fancyfoot[R]{Page \thepage\ of \pageref{LastPage}}
 
