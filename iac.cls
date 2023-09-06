@@ -36,8 +36,8 @@
 \titlespacing{\subsubsection}{0pt}{*2}{*0.5}
 
 \titleformat{\section}{\bfseries}{\arabic{section}.}{0.4em}{#1}
-\titleformat{\subsection}{\normalfont}{\textit{\arabic{section}.\arabic{subsection}}}{0.2em}{\textit{#1}}
-\titleformat{\subsubsection}{\normalfont}{\textit{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}}{0.2em}{\textit{#1}}
+\titleformat{\subsection}{\itshape}{\arabic{section}.\arabic{subsection}}{0.2em}{#1}
+\titleformat{\subsubsection}{\itshape}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}{0.2em}{#1}
 
 % Define a set of commands are used to establish the IAC settings
 \newcommand*{\IACpaperyear}[1]{\def \iac@paperyear{#1}}
