@@ -10,20 +10,24 @@
 \RequirePackage{amstext}
 \RequirePackage{amsfonts}
 
-\RequirePackage{caption} % Provdes ways to customise the captions in figures and tables 
+\RequirePackage[backend=biber, style=ieee, sorting=none]{biblatex}
+
+\RequirePackage[]{caption} % Provdes ways to customise the captions in figures and tables 
 \RequirePackage{etoolbox} % Provides some programming tools for LaTeX (e.g., while expressions)
 \RequirePackage{fancyhdr} % This package provides extensive facilities for constructing headers, footers and controlling their use
 \RequirePackage{float} % Provide the option to impose the figures and tables positions
 
 \RequirePackage[left=2.25cm, right=2.25cm, top=3.35cm, bottom=3.35cm]{geometry} % Allows editing of the page layout 
-
 \RequirePackage{graphicx} % Required for inserting images
 \RequirePackage[hidelinks]{hyperref}
 \RequirePackage{lastpage} % Allows writing in the footer the total number of pages 
 \RequirePackage{longtable} % Implements multi-page table and other table settings
+\RequirePackage{mathptmx} % This marvel changes all to the ptm font family
 \RequirePackage{multirow} % Allows merging columns and rows in tables
 \RequirePackage[normalem]{ulem} % Provides various types of underlining that can stretch between words and be broken across lines. The [normalem] option forbids ulem from replacing italics with underling
 \RequirePackage[explicit,compact]{titlesec} % Provides an interface to customise the tytle styles
+
+\RequirePackage{url} % Allows to use URL links
 
 % General captions ettings
 \captionsetup[figure]{name=Fig.,format=hang,indention=-20pt}
@@ -40,6 +44,7 @@
 \titleformat{\section}{\bfseries}{\arabic{section}.}{0.4em}{#1}
 \titleformat{\subsection}{\itshape}{\arabic{section}.\arabic{subsection}}{0.2em}{#1}
 \titleformat{\subsubsection}{\itshape}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}{0.2em}{#1}
+
 
 % Define a set of commands are used to establish the IAC settings
 \newcommand*{\IACpaperyear}[1]{\def \iac@paperyear{#1}}
@@ -95,9 +100,6 @@
 
 % Command to write the title and the first page 
 \renewcommand{\maketitle}{%
-
-    % Set a font that is very similar to Times New Roman for the whoel document
-    \fontfamily{ptm}\selectfont
     
     \twocolumn[%
         \begin{@twocolumnfalse}%
@@ -147,26 +149,38 @@
         \textbf{Keywords:} \iac@keywords%
         \vskip 1.0em%
         % If the acronym counter is not empty create the abbreviation table
-        \ifnum\theacrocount>0{
-        \textbf{Abbreviations:}% 
-        \newcounter{acronum}%
-        \begin{longtable}[l]{l l}
-        \whileboolexpr{%
-            test {\ifnumcomp{\value{acronum}}{<}{\theacrocount}}%
-        }%
-        {%
-        \stepcounter{acronum}
-            \csuse{iac@acronym\theacronum} & \csuse{iac@acronymdef\theacronum}\\
-        }%
-        \end{longtable}%
-        \phantom{ciao}
+        % The table is c
+        \ifnum\theacrocount>0{%
+            \textbf{Abbreviations:}% 
+            \vskip 0.05em%
+            \newcounter{acronum}%
+            \newcounter{acrolim}%
+            \newcounter{acroleft}%
+            \whileboolexpr{%
+                test {\ifnumcomp{2*\value{acroleft}}{<}{\ifnumodd{\value{acrocount}}{\theacrocount+1}{\theacrocount}}}%
+            }%
+            {%
+            \stepcounter{acroleft}%
+            }%
+            \setcounter{acrolim}{\theacroleft}%
+            \begin{longtable}[l]{l l l l l}
+            \whileboolexpr{%
+                test {\ifnumcomp{\value{acronum}}{<}{\theacrolim}}%
+            }%
+            {%
+                \stepcounter{acronum}%
+                \stepcounter{acroleft}%
+                
+                \csuse{iac@acronym\theacronum} & \csuse{iac@acronymdef\theacronum} & &
+                \ifnumcomp{\value{acroleft}}{<}{\theacrocount+1}{\csuse{iac@acronym\theacroleft} & \csuse{iac@acronymdef\theacroleft}\\}{& \\}
+            }%
+            \end{longtable}%
         }\fi%
         \end{@twocolumnfalse}%
     ]%
 
 }
 
-% These settings style the header and the footer according to the provided IAC settings
 \pagestyle{fancy}
 \fancyhead{}
 \fancyfoot{}
