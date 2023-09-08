@@ -12,11 +12,13 @@
 
 \RequirePackage{caption} % Provdes ways to customise the captions in figures and tables 
 \RequirePackage{etoolbox} % Provides some programming tools for LaTeX (e.g., while expressions)
+\RequirePackage{fancyhdr} % This package provides extensive facilities for constructing headers, footers and controlling their use
 \RequirePackage{float} % Provide the option to impose the figures and tables positions
+
 \RequirePackage[left=2.25cm, right=2.25cm, top=3.35cm, bottom=3.35cm]{geometry} % Allows editing of the page layout 
 
 \RequirePackage{graphicx} % Required for inserting images
-\RequirePackage{fancyhdr} % This package provides extensive facilities for constructing headers, footers and controlling their use
+\RequirePackage[hidelinks]{hyperref}
 \RequirePackage{lastpage} % Allows writing in the footer the total number of pages 
 \RequirePackage{longtable} % Implements multi-page table and other table settings
 \RequirePackage{multirow} % Allows merging columns and rows in tables
